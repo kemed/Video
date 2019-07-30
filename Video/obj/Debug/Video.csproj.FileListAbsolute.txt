@@ -3,8 +3,10 @@ C:\Users\machm\Source\Repos\Video\Video\bin\Video.dll
 C:\Users\machm\Source\Repos\Video\Video\bin\Video.pdb
 C:\Users\machm\Source\Repos\Video\Video\bin\Antlr3.Runtime.dll
 C:\Users\machm\Source\Repos\Video\Video\bin\Autofac.dll
+C:\Users\machm\Source\Repos\Video\Video\bin\Core.dll
 C:\Users\machm\Source\Repos\Video\Video\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\machm\Source\Repos\Video\Video\bin\Newtonsoft.Json.dll
+C:\Users\machm\Source\Repos\Video\Video\bin\Service.dll
 C:\Users\machm\Source\Repos\Video\Video\bin\System.Net.Http.Formatting.dll
 C:\Users\machm\Source\Repos\Video\Video\bin\System.Web.Helpers.dll
 C:\Users\machm\Source\Repos\Video\Video\bin\System.Web.Http.dll
@@ -16,6 +18,10 @@ C:\Users\machm\Source\Repos\Video\Video\bin\System.Web.WebPages.Deployment.dll
 C:\Users\machm\Source\Repos\Video\Video\bin\System.Web.WebPages.dll
 C:\Users\machm\Source\Repos\Video\Video\bin\System.Web.WebPages.Razor.dll
 C:\Users\machm\Source\Repos\Video\Video\bin\WebGrease.dll
+C:\Users\machm\Source\Repos\Video\Video\bin\Data.dll
+C:\Users\machm\Source\Repos\Video\Video\bin\EntityFramework.dll
+C:\Users\machm\Source\Repos\Video\Video\bin\Core.pdb
+C:\Users\machm\Source\Repos\Video\Video\bin\Service.pdb
 C:\Users\machm\Source\Repos\Video\Video\bin\Autofac.pdb
 C:\Users\machm\Source\Repos\Video\Video\bin\Autofac.xml
 C:\Users\machm\Source\Repos\Video\Video\bin\Newtonsoft.Json.xml
@@ -30,8 +36,13 @@ C:\Users\machm\Source\Repos\Video\Video\bin\System.Web.WebPages.xml
 C:\Users\machm\Source\Repos\Video\Video\bin\System.Web.WebPages.Deployment.xml
 C:\Users\machm\Source\Repos\Video\Video\bin\System.Web.WebPages.Razor.xml
 C:\Users\machm\Source\Repos\Video\Video\bin\Antlr3.Runtime.pdb
+C:\Users\machm\Source\Repos\Video\Video\bin\Data.pdb
+C:\Users\machm\Source\Repos\Video\Video\bin\Data.dll.config
+C:\Users\machm\Source\Repos\Video\Video\bin\EntityFramework.xml
 C:\Users\machm\Source\Repos\Video\Video\obj\Debug\Video.csprojAssemblyReference.cache
 C:\Users\machm\Source\Repos\Video\Video\obj\Debug\Video.csproj.CoreCompileInputs.cache
 C:\Users\machm\Source\Repos\Video\Video\obj\Debug\Video.csproj.CopyComplete
 C:\Users\machm\Source\Repos\Video\Video\obj\Debug\Video.dll
 C:\Users\machm\Source\Repos\Video\Video\obj\Debug\Video.pdb
+C:\Users\machm\Source\Repos\Video\Video\bin\EntityFramework.SqlServer.dll
+C:\Users\machm\Source\Repos\Video\Video\bin\EntityFramework.SqlServer.xml

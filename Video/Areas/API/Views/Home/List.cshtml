@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "API Help Page";
+}
+<header class="help-page">
+    <div class="content-wrapper">
+        <div class="float-left">
+            <h1>@ViewBag.Title</h1>
+        </div>
+    </div>
+</header>
+<div id="body" class="help-page">
+    <section class="content-wrapper main-content clear-fix">
+        <table class="table-responsive table-striped col-md-12">
+            <thead>
+                <tr><th>API</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="@Url.Action("MobileService", "Home", new { Area = "API" })">Mobile Service</a></td>
+                    <td>
+                        Held all of Video Service
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>

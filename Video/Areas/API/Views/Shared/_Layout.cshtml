@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/API/css")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@Url.Action("Login", "Account", new { Area = "" })"><img src="@Url.Content("~/Content/images/logo-login.png")" height="50"></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Index", "Home", new { Area = "API" })">Home</a></li>
+                    <li><a href="@Url.Action("List", "Home", new { Area = "API" })">API</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year Video</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/API_bottom/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

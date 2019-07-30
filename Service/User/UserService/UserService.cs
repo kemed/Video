@@ -111,10 +111,11 @@ namespace Service.User.UserService
             }
             return result;
         }
-        
+
         #endregion
 
         #region Utilities
+        [Obsolete]
         private ObjectResult<string> UploadFile(string nip, string filetype, Stream file)
         {
             ObjectResult<string> result = new ObjectResult<string>();
@@ -130,7 +131,7 @@ namespace Service.User.UserService
             }
             try
             {
-                string dir = Path.GetFullPath(ConfigurationSettings.AppSettings["PhotoPath"].ToString());
+                string dir = Path.GetFullPath(ConfigurationSettings.AppSettings["VideoPath"].ToString());
                 string target = Path.Combine(dir, nip + filetype);
                 bool exists = Directory.Exists(dir);
                 if (!exists)

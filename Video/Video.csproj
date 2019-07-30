@@ -44,11 +44,22 @@
     <Reference Include="Autofac, Version=4.9.3.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.9.3\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.Activities.Presentation" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -119,6 +130,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\API\Models\" />
+    <Folder Include="Content\Video\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -126,34 +139,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
-    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
-    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
-    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
-    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
-    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Areas\API\APIAreaRegistration.cs" />
+    <Compile Include="Areas\API\Controllers\HomeController.cs" />
+    <Compile Include="Areas\API\Helper\HelperAPI.cs" />
+    <Compile Include="Areas\API\Service\UserAPI\IUserAPI.cs" />
+    <Compile Include="Areas\API\Service\UserAPI\UserAPI.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -162,7 +152,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Areas\API\Content\bootstrap.css" />
+    <Content Include="Areas\API\Content\bootstrap.min.css" />
+    <Content Include="Areas\API\Content\Site.css" />
+    <Content Include="Areas\API\Scripts\bootstrap.js" />
+    <Content Include="Areas\API\Scripts\bootstrap.min.js" />
+    <None Include="Areas\API\Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Areas\API\Scripts\jquery-1.10.2.js" />
+    <Content Include="Areas\API\Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Areas\API\Scripts\modernizr-2.6.2.js" />
+    <Content Include="Areas\API\Scripts\respond.js" />
+    <Content Include="Areas\API\Scripts\respond.min.js" />
+    <None Include="Areas\API\Scripts\_references.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -170,25 +171,13 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Areas\HelpPage\Views\Web.config" />
-    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Areas\API\Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Areas\API\Views\Home\Index.cshtml" />
+    <Content Include="Areas\API\Views\Home\List.cshtml" />
+    <Content Include="Areas\API\Views\Home\MobileService.cshtml" />
+    <Content Include="Areas\API\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\API\Views\web.config" />
+    <Content Include="Areas\API\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -202,7 +191,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
@@ -212,7 +200,16 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{829d2239-0437-4174-acf7-9f4d60abc38c}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{8123eb8b-c865-428d-9ce6-a1ec2eb6b1fb}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
