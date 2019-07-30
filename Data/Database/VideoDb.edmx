@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VideoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tComment">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VideoID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tUser">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar(max)" />
+          <Property Name="CreateDate" Type="date" />
+          <Property Name="UpdateDate" Type="date" />
+        </EntityType>
+        <EntityType Name="tUserLogin">
+          <Key>
+            <PropertyRef Name="UserLoginID" />
+          </Key>
+          <Property Name="UserLoginID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Token" Type="varchar" MaxLength="50" />
+          <Property Name="DeviceID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tVideo">
+          <Key>
+            <PropertyRef Name="VideoID" />
+          </Key>
+          <Property Name="VideoID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VideoName" Type="varchar" MaxLength="50" />
+          <Property Name="VideoPath" Type="varchar(max)" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_tComment_tUser">
+          <End Role="tUser" Type="Self.tUser" Multiplicity="1" />
+          <End Role="tComment" Type="Self.tComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tComment">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tComment_tVideo">
+          <End Role="tVideo" Type="Self.tVideo" Multiplicity="1" />
+          <End Role="tComment" Type="Self.tComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tVideo">
+              <PropertyRef Name="VideoID" />
+            </Principal>
+            <Dependent Role="tComment">
+              <PropertyRef Name="VideoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tVideo_tUser">
+          <End Role="tUser" Type="Self.tUser" Multiplicity="1" />
+          <End Role="tVideo" Type="Self.tVideo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tVideo">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VideoModelStoreContainer">
+          <EntitySet Name="tComment" EntityType="Self.tComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tUser" EntityType="Self.tUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tUserLogin" EntityType="Self.tUserLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tVideo" EntityType="Self.tVideo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tComment_tUser" Association="Self.FK_tComment_tUser">
+            <End Role="tUser" EntitySet="tUser" />
+            <End Role="tComment" EntitySet="tComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tComment_tVideo" Association="Self.FK_tComment_tVideo">
+            <End Role="tVideo" EntitySet="tVideo" />
+            <End Role="tComment" EntitySet="tComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tVideo_tUser" Association="Self.FK_tVideo_tUser">
+            <End Role="tUser" EntitySet="tUser" />
+            <End Role="tVideo" EntitySet="tVideo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VideoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tComment">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="Guid" Nullable="false" />
+          <Property Name="VideoID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tUser" Relationship="Self.FK_tComment_tUser" FromRole="tComment" ToRole="tUser" />
+          <NavigationProperty Name="tVideo" Relationship="Self.FK_tComment_tVideo" FromRole="tComment" ToRole="tVideo" />
+        </EntityType>
+        <EntityType Name="tUser">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tComment" Relationship="Self.FK_tComment_tUser" FromRole="tUser" ToRole="tComment" />
+          <NavigationProperty Name="tVideo" Relationship="Self.FK_tVideo_tUser" FromRole="tUser" ToRole="tVideo" />
+        </EntityType>
+        <EntityType Name="tUserLogin">
+          <Key>
+            <PropertyRef Name="UserLoginID" />
+          </Key>
+          <Property Name="UserLoginID" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Token" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeviceID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tVideo">
+          <Key>
+            <PropertyRef Name="VideoID" />
+          </Key>
+          <Property Name="VideoID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="VideoName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VideoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tComment" Relationship="Self.FK_tComment_tVideo" FromRole="tVideo" ToRole="tComment" />
+          <NavigationProperty Name="tUser" Relationship="Self.FK_tVideo_tUser" FromRole="tVideo" ToRole="tUser" />
+        </EntityType>
+        <Association Name="FK_tComment_tUser">
+          <End Role="tUser" Type="Self.tUser" Multiplicity="1" />
+          <End Role="tComment" Type="Self.tComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tComment">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tComment_tVideo">
+          <End Role="tVideo" Type="Self.tVideo" Multiplicity="1" />
+          <End Role="tComment" Type="Self.tComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tVideo">
+              <PropertyRef Name="VideoID" />
+            </Principal>
+            <Dependent Role="tComment">
+              <PropertyRef Name="VideoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tVideo_tUser">
+          <End Role="tUser" Type="Self.tUser" Multiplicity="1" />
+          <End Role="tVideo" Type="Self.tVideo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tVideo">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VideoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tComment" EntityType="Self.tComment" />
+          <EntitySet Name="tUser" EntityType="Self.tUser" />
+          <EntitySet Name="tUserLogin" EntityType="Self.tUserLogin" />
+          <EntitySet Name="tVideo" EntityType="Self.tVideo" />
+          <AssociationSet Name="FK_tComment_tUser" Association="Self.FK_tComment_tUser">
+            <End Role="tUser" EntitySet="tUser" />
+            <End Role="tComment" EntitySet="tComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tComment_tVideo" Association="Self.FK_tComment_tVideo">
+            <End Role="tVideo" EntitySet="tVideo" />
+            <End Role="tComment" EntitySet="tComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tVideo_tUser" Association="Self.FK_tVideo_tUser">
+            <End Role="tUser" EntitySet="tUser" />
+            <End Role="tVideo" EntitySet="tVideo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VideoModelStoreContainer" CdmEntityContainer="VideoEntities">
+          <EntitySetMapping Name="tComment">
+            <EntityTypeMapping TypeName="VideoModel.tComment">
+              <MappingFragment StoreEntitySet="tComment">
+                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+                <ScalarProperty Name="VideoID" ColumnName="VideoID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tUser">
+            <EntityTypeMapping TypeName="VideoModel.tUser">
+              <MappingFragment StoreEntitySet="tUser">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tUserLogin">
+            <EntityTypeMapping TypeName="VideoModel.tUserLogin">
+              <MappingFragment StoreEntitySet="tUserLogin">
+                <ScalarProperty Name="UserLoginID" ColumnName="UserLoginID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tVideo">
+            <EntityTypeMapping TypeName="VideoModel.tVideo">
+              <MappingFragment StoreEntitySet="tVideo">
+                <ScalarProperty Name="VideoID" ColumnName="VideoID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="VideoName" ColumnName="VideoName" />
+                <ScalarProperty Name="VideoPath" ColumnName="VideoPath" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

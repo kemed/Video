@@ -1,0 +1,17 @@
+C:\Users\machm\Source\Repos\Video\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+C:\Users\machm\Source\Repos\Video\Service\obj\Debug\Service.csprojAssemblyReference.cache
+C:\Users\machm\Source\Repos\Video\Service\bin\Debug\Service.dll
+C:\Users\machm\Source\Repos\Video\Service\bin\Debug\Service.pdb
+C:\Users\machm\Source\Repos\Video\Service\bin\Debug\Autofac.dll
+C:\Users\machm\Source\Repos\Video\Service\bin\Debug\Core.dll
+C:\Users\machm\Source\Repos\Video\Service\bin\Debug\Data.dll
+C:\Users\machm\Source\Repos\Video\Service\bin\Debug\EntityFramework.dll
+C:\Users\machm\Source\Repos\Video\Service\bin\Debug\Core.pdb
+C:\Users\machm\Source\Repos\Video\Service\bin\Debug\Data.pdb
+C:\Users\machm\Source\Repos\Video\Service\bin\Debug\Data.dll.config
+C:\Users\machm\Source\Repos\Video\Service\bin\Debug\Autofac.pdb
+C:\Users\machm\Source\Repos\Video\Service\bin\Debug\Autofac.xml
+C:\Users\machm\Source\Repos\Video\Service\bin\Debug\EntityFramework.xml
+C:\Users\machm\Source\Repos\Video\Service\obj\Debug\Service.csproj.CopyComplete
+C:\Users\machm\Source\Repos\Video\Service\obj\Debug\Service.dll
+C:\Users\machm\Source\Repos\Video\Service\obj\Debug\Service.pdb

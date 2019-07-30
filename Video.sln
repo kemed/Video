@@ -1,9 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Video", "Video\Video.csproj", "{FBEBE383-2DA2-4328-9599-8D3DD6E7F7D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{B7E2FBD2-3199-41E6-9D85-EE05541444A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{3D5030FA-E6BA-4558-8A37-4F76A4CDF4AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{47DE7078-A51B-45FD-904C-485134D8B3E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{829D2239-0437-4174-ACF7-9F4D60ABC38C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{8123EB8B-C865-428D-9CE6-A1EC2EB6B1FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{0B93F672-6F63-4CF8-A751-9FD376BA2EB4}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Documents\scriptVideo.txt = ..\..\..\Documents\scriptVideo.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +30,29 @@ Global
 		{FBEBE383-2DA2-4328-9599-8D3DD6E7F7D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBEBE383-2DA2-4328-9599-8D3DD6E7F7D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBEBE383-2DA2-4328-9599-8D3DD6E7F7D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47DE7078-A51B-45FD-904C-485134D8B3E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47DE7078-A51B-45FD-904C-485134D8B3E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47DE7078-A51B-45FD-904C-485134D8B3E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47DE7078-A51B-45FD-904C-485134D8B3E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{829D2239-0437-4174-ACF7-9F4D60ABC38C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{829D2239-0437-4174-ACF7-9F4D60ABC38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{829D2239-0437-4174-ACF7-9F4D60ABC38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{829D2239-0437-4174-ACF7-9F4D60ABC38C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8123EB8B-C865-428D-9CE6-A1EC2EB6B1FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8123EB8B-C865-428D-9CE6-A1EC2EB6B1FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8123EB8B-C865-428D-9CE6-A1EC2EB6B1FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8123EB8B-C865-428D-9CE6-A1EC2EB6B1FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FBEBE383-2DA2-4328-9599-8D3DD6E7F7D6} = {B7E2FBD2-3199-41E6-9D85-EE05541444A8}
+		{47DE7078-A51B-45FD-904C-485134D8B3E4} = {3D5030FA-E6BA-4558-8A37-4F76A4CDF4AE}
+		{829D2239-0437-4174-ACF7-9F4D60ABC38C} = {3D5030FA-E6BA-4558-8A37-4F76A4CDF4AE}
+		{8123EB8B-C865-428D-9CE6-A1EC2EB6B1FB} = {3D5030FA-E6BA-4558-8A37-4F76A4CDF4AE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F732B053-7657-45C0-9148-CEE5B2819D5E}
 	EndGlobalSection
 EndGlobal
